@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header card-primary">
-        <button class="btn btn-primary btn-md"><i class="fa fa-plus"></i> Tambah Data Kelulusan</button>
+        <a href="<?= base_url('kelulusan/create') ?>" class="btn btn-primary btn-md"><i class="fa fa-plus"></i> Tambah Data Kelulusan</a>
     </div>
     <div class="card-body">
         <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -14,13 +14,20 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td class="text-center">System Architect</td>
-                <td class="text-center">Edinburgh</td>
-                <td class="text-center"><b><span class="badge badge-success">LULUS</span></b></td>
-                <td>2011/04/25</td>
-            </tr>
+            <?php
+            foreach ($data_kelulusan as $data) {
+                echo '<tr>
+                <td>' . $data->nama_siswa . '</td>
+                <td class="text-center">'.$data->nama_kelas.'</td>
+                <td class="text-center">' . $data->total_nilai . '</td>
+                <td class="text-center"><b><span class="badge badge-success">' . strtoupper($data->status) . '</span></b></td>
+                <td class="text-center">
+                    <a href="' . base_url('kelulusan/edit/' . $data->id) . '" class="btn btn-primary btn-md">Edit</a>
+                    <a href="' . base_url('kelulusan/delete/' . $data->id) . '" class="btn btn-danger btn-md">Delete</a>
+                </td>
+            </tr>';
+            }
+            ?>
         </table>
     </div>
 </div>
