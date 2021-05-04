@@ -8,6 +8,7 @@
             <tr>
                 <th class="text-center">Nama Siswa</th>
                 <th class="text-center">NISN</th>
+                <th class="text-center">Kelas</th>
                 <th class="text-center">Aksi</th>
             </tr>
             </thead>
@@ -17,6 +18,7 @@
                 echo '<tr>
                 <td class="text-center">'.$data->nama_siswa.'</td>
                 <td class="text-center">'.$data->nisn.'</td>
+                <td class="text-center">'.$data->nama_kelas.'</td>
                 <td class="text-center">
                     <a href="'.base_url('siswa/edit/'.$data->id).'" class="btn btn-primary btn-md">Edit</a>
                     <a href="'.base_url('siswa/delete/'.$data->id).'" class="btn btn-danger btn-md">Delete</a>
