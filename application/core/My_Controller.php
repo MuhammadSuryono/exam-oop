@@ -1,5 +1,5 @@
 <?php
-
+define("MAX_LENGTH", 6);
 
 class My_Controller extends CI_Controller
 {
@@ -43,5 +43,11 @@ class My_Controller extends CI_Controller
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+
+    public function generateHashWithSalt(string $value) : string {
+        $intermediateSalt = md5(uniqid(rand(), true));
+        $salt = substr($intermediateSalt, 0, MAX_LENGTH);
+        return hash("sha256", $value . $salt);
     }
 }

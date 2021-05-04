@@ -142,7 +142,7 @@ class Welcome extends My_Controller {
 
     public function checkKelulusan() {
         $nisn = $this->input->post('nisn');
-        $path = '?hash='.md5($nisn).'&nisn='.$nisn.'';
+        $path = '?data='.$this->generateHashWithSalt($nisn).'&hash='.md5($nisn).'&nisn='.$nisn.'';
 
         redirect(base_url('periksa'.$path));
     }
