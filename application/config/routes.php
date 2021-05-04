@@ -53,6 +53,12 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['kelulusan/create'] = 'welcome/formCreate';
+$route['kelulusan/store'] = 'welcome/create';
+$route['kelulusan/update/(:any)'] = 'welcome/update/$1';
+$route['kelulusan/edit/(:any)'] = 'welcome/formEdit/$1';
+$route['kelulusan/delete/(:any)'] = 'welcome/delete/$1';
+
 $route['login'] = 'welcome/checkLogin';
 $route['logout'] = 'welcome/logout';
 $route['kelas'] = 'kelas';
