@@ -37,12 +37,18 @@ class M_general extends CI_Model
         return $this->db->delete($table, $data);
     }
 
-    public function selectJoin(string $select = '*', string $tableForm, array $join) {
+    public function selectJoin(string $select = '*', string $tableForm, array $join, array $where = array()) {
         $query = $this->db->select($select)
             ->from($tableForm);
 
         foreach ($join as $key => $value) {
             $query->join($key, $value);
+        }
+
+        if (count($where) > 0) {
+            foreach ($where as $key => $value) {
+                $query->where($key, $value);
+            }
         }
 
         return $query->get();

@@ -6,10 +6,10 @@
                     <div class="text-center">
                         <h3>PERIKSA KELULUSAN ANDA</h3>
                     </div>
-                    <form>
+                    <form method="post" action="<?= base_url('check-kelulusan') ?>">
                         <div class="form-group">
                             <label for="exampleInputEmail1">NISN</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="nisn" aria-describedby="emailHelp" placeholder="Enter email">
                             <small id="emailHelp" class="form-text text-muted">Masukkan NISN anda</small>
                         </div>
                         <button type="submit" class="btn btn-primary" style="float: right"><i class="fa fa-graduation-cap"></i> Periksa</button>
@@ -30,17 +30,19 @@
                         <th class="text-center">Kelas</th>
                         <th class="text-center">Total Nilai</th>
                         <th class="text-center">Keterangan</th>
-                        <th class="text-center">Aksi</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td class="text-center">System Architect</td>
-                        <td class="text-center">Edinburgh</td>
-                        <td class="text-center"><b><span class="badge badge-success">LULUS</span></b></td>
-                        <td>2011/04/25</td>
-                    </tr>
+                    <?php
+                    foreach ($data_kelulusan as $data) {
+                        echo '<tr>
+                <td>' . $data->nama_siswa . '</td>
+                <td class="text-center">'.$data->nama_kelas.'</td>
+                <td class="text-center">' . $data->total_nilai . '</td>
+                <td class="text-center"><b><span class="badge badge-success">' . strtoupper($data->status) . '</span></b></td>
+            </tr>';
+                    }
+                    ?>
                 </table>
             </div>
         </div>

@@ -58,6 +58,8 @@ $route['kelulusan/store'] = 'welcome/create';
 $route['kelulusan/update/(:any)'] = 'welcome/update/$1';
 $route['kelulusan/edit/(:any)'] = 'welcome/formEdit/$1';
 $route['kelulusan/delete/(:any)'] = 'welcome/delete/$1';
+$route['check-kelulusan'] = 'welcome/checkKelulusan';
+$route['periksa'] = 'welcome/periksa';
 
 $route['login'] = 'welcome/checkLogin';
 $route['logout'] = 'welcome/logout';
