@@ -36,4 +36,16 @@ class M_general extends CI_Model
     public function delete(string $table, array $data) : bool {
         return $this->db->delete($table, $data);
     }
+
+    public function selectJoin(string $select = '*', string $tableForm, array $join) {
+        $query = $this->db->select($select)
+            ->from($tableForm);
+
+        foreach ($join as $key => $value) {
+            $query->join($key, $value);
+        }
+
+        return $query->get();
+
+    }
 }
